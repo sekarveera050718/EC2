@@ -42,6 +42,7 @@ module "ec2_cluster" {
   instance_type			= "t2.micro"
   associate_public_ip_address	= true
   subnet_id			= "${element(data.aws_subnet_ids.all.ids, 0)}"
+  vpc_security_group_ids	= ["${module.security_group.this_security_group_id}"]
   tags = {
     Type			= "tf-tomcat"
   }
