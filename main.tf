@@ -38,7 +38,7 @@ module "ec2_cluster" {
   source			= "terraform-aws-modules/ec2-instance/aws"
   instance_count		= 1
   name				= "auto-tomcat"
-  ami				= "${data.aws_ami.amazon_linux.id}"
+  ami				= "${data.aws_ami.ubuntu_linux.id}"
   instance_type			= "t2.micro"
   associate_public_ip_address	= true
   subnet_id			= "${element(data.aws_subnet_ids.all.ids, 0)}"
