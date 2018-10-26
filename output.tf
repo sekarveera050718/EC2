@@ -1,4 +1,4 @@
 output "public_ip" {
   description	= "public IP address of EC2 instance"
-  value		= ["${ec2_cluster.this_public_ip}"]
+  value		= "${module.ec2_cluster.public_ip}"
 }
