@@ -29,7 +29,7 @@ module "security_group" {
   description		= "Security group for EC2 instances created with terraform"
   vpc_id		= "${data.aws_vpc.default.id}"
   ingress_cidr_blocks	= ["0.0.0.0/0"]
-  ingress_rules		= ["http-80-tcp", "all-icmp"]
+  ingress_rules		= ["ssh-tcp", "http-80-tcp", "all-icmp"]
   egress_rules		= ["all-all"]
 }
 
