@@ -1,7 +1,7 @@
 ## AWS provider configuration
 provider "aws" {
   profile		= "aws"
-  region		= "us-east-1"
+  region		= "us-east-2"
 }
 
 ## VPC selection, needed for subnet_ids
