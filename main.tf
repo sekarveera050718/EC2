@@ -18,7 +18,7 @@ data "aws_subnet_ids" "all" {
 data "aws_ami" "ubuntu_linux" {
   filter {
     name		= "image-id"
-    values		= ["ami-01f77b0e5db3bd6fb"]
+    values		= ["ami-0d1c4f8aa51e723b3"]
   }
 }
 
