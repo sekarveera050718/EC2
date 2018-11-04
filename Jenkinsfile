@@ -7,8 +7,6 @@ node {
 	stage("Retrieve code and vars") {
 		// Clones git repo containing the code
 		git url: 'https://github.com/drooger/EC2_Jenkins.git'
-		// Load credentials for Tomcat user in env vars
-		load "/home/tomcat/.tomcat_creds.groovy"
 	}
 
 	stage("Create EC2 instance with TerraForm") {
@@ -20,6 +18,8 @@ node {
 	stage("Deploy to Tomcat remotely") {
 		// Enable remote access and add user to Tomcat
 		sh("./setup_tomcat.sh ${env.public_ip}")
+		// Load Tomcat user credentials to env vars
+		load "/home/tomcat/.tomcat_creds.groovy"
 		// Deploy sample.war to Tomcat
 		sh("curl -v -u ${env.tomcat_user}:${env.tomcat.passwd} -T sample.war 'http://${env.public_ip}/manager/text/deploy?path=/hello-world&update=true'")
 	}
