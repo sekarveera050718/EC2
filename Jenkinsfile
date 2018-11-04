@@ -21,7 +21,7 @@ node {
 		// Load Tomcat user credentials to env vars
 		load "/home/tomcat/.tomcat_creds.groovy"
 		// Deploy sample.war to Tomcat
-		sh("curl -v -u ${env.tomcat_user}:${env.tomcat.passwd} -T sample.war 'http://${env.public_ip}/manager/text/deploy?path=/hello-world&update=true'")
+		sh("curl -v -u ${env.tomcat_user}:${env.tomcat_passwd} -T sample.war 'http://${env.public_ip}/manager/text/deploy?path=/hello-world&update=true'")
 	}
 
 	stage("Clean up with TerraForm") {
