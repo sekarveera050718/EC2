@@ -15,7 +15,7 @@ data "aws_subnet_ids" "all" {
 }
 
 ## EC2 instance specification
-data "aws_ami" "ubuntu" {
+data "aws_ami" "ubuntu_linux" {
   filter {
     name		= "image-id"
     values		= ["ami-03f0fd1a2ba530e75"]
