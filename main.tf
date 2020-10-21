@@ -1,6 +1,6 @@
 ## AWS provider configuration
 provider "aws" {
-  profile		= "aws"
+  profile		= "awsstudent"
   region		= "ap-south-1"
 }
 
