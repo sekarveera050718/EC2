@@ -1,7 +1,7 @@
 ## AWS provider configuration
 provider "aws" {
   profile		= "aws"
-  region		= "us-east-2"
+  region		= "ap-south-1"
 }
 
 ## VPC selection, needed for subnet_ids
@@ -18,7 +18,7 @@ data "aws_subnet_ids" "all" {
 data "aws_ami" "ubuntu_linux" {
   filter {
     name		= "image-id"
-    values		= ["ami-0d1c4f8aa51e723b3"]
+    values		= ["ami-03f0fd1a2ba530e75"]
   }
 }
 
@@ -37,14 +37,14 @@ module "security_group" {
 module "ec2_cluster" {
   source			= "terraform-aws-modules/ec2-instance/aws"
   instance_count		= 1
-  name				= "auto-tomcat"
+  name				= "Jenkins-Lab-EC2-Java"
   ami				= "${data.aws_ami.ubuntu_linux.id}"
   instance_type			= "t2.micro"
-  key_name			= "aws_mdr_key"
+  key_name			= "demokey"
   associate_public_ip_address	= true
   subnet_id			= "${element(data.aws_subnet_ids.all.ids, 0)}"
   vpc_security_group_ids	= ["${module.security_group.this_security_group_id}"]
   tags = {
-    Type			= "tf-tomcat"
+    Name			= "Jenkins-EC2-Java"
   }
 }
