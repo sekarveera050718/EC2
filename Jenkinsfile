@@ -15,14 +15,14 @@ node {
 		env.public_ip = sh(returnStdout: true, script: "~/terraform output public_ip").trim()
 	}
 
-	stage("Deploy to Tomcat remotely") {
+	//stage("Deploy to Tomcat remotely") {
 		// Enable remote access and add user to Tomcat
-		sh("./setup_tomcat.sh ${env.public_ip}")
+	//	sh("./setup_tomcat.sh ${env.public_ip}")
 		// Load Tomcat user credentials to env vars
-		load "/home/tomcat/.tomcat_creds.groovy"
+	//	load "/home/tomcat/.tomcat_creds.groovy"
 		// Deploy sample.war to Tomcat
-		sh("curl -v -u ${env.tomcat_user}:${env.tomcat_passwd} -T sample.war 'http://${env.public_ip}/manager/text/deploy?path=/hello-world&update=true'")
-	}
+	//	sh("curl -v -u ${env.tomcat_user}:${env.tomcat_passwd} -T sample.war 'http://${env.public_ip}/manager/text/deploy?path=/hello-world&update=true'")
+//	}
 
 	stage("Clean up with TerraForm") {
 		// Destroys the earlier created EC2 T2.micro instance
