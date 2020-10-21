@@ -6,7 +6,7 @@ node {
 
 	stage("Retrieve code and vars") {
 		// Clones git repo containing the code
-		git url: 'https://github.com/maheshmadmax/EC2-java.git'
+		git url: 'https://github.com/maheshmadmax/Java-EC2.git'
 	}
 
 	stage("Create EC2 instance with TerraForm") {
