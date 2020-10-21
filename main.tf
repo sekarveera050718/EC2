@@ -1,6 +1,7 @@
 provider "aws" {
 	profile = "default"
 	region = "ap-south-1"
+	shared_credentials_file = "/home/ubuntu/.aws/credentials"
 }
 
 resource "aws_instance" "Ubuntu" {
