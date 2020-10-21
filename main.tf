@@ -2,8 +2,8 @@ provider "aws" {
 	profile = "jenkins"
 	region = "ap-south-1"
 	shared_credentials_file = "/home/ubuntu/.aws/credentials"
-	access_key = "${var.AWS_ACCESS_KEY}"
-	secret_key = "${var.AWS_SECRET_KEY}"
+	access_key = "${var.AWS_ACCESS_KEY_ID}"
+	secret_key = "${var.AWS_SECRET_ACCESS_ID}"
 }
 
 resource "aws_instance" "Ubuntu" {
