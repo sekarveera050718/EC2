@@ -1,7 +1,7 @@
 node {
 	stage("Install TerraForm if absent") {
 		// If ~/terraform doesn't exist, download and unzip it
-		sh("if [ -f ~/terraform ]; then echo 'TerraForm is already installed.'; exit 0; fi; echo 'installing TerraForm...'; wget https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_adm64.zip -P /tmp; sudo unzip /tmp/terraform_0.11.10_linux_amd64.zip -d ~; sudo rm /tmp/terraform_0.11.10_linux_amd64.zip")
+		sh("if [ -f ~/terraform ]; then echo 'TerraForm is already installed.'; exit 0; fi; echo 'installing TerraForm...'; wget https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip -P /tmp; unzip /tmp/terraform_0.13.4_linux_amd64.zip -d ~; rm /tmp/terraform_0.13.4_linux_amd64.zip")
 	}
 
 	stage("Retrieve code and vars") {
