@@ -15,7 +15,7 @@ data "aws_subnet_ids" "all" {
 }
 
 ## EC2 instance specification
-data "aws_ami" "ubuntu_linux" {
+data "aws_ami" "Ubuntu Server 18.04 LTS (HVM), SSD Volume Type" {
   filter {
     name		= "image-id"
     values		= ["ami-03f0fd1a2ba530e75"]
