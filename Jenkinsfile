@@ -15,9 +15,9 @@ node {
 	}
     stage("Deploy Jar to AWS") {
 		// Deploy sample.jar to AWS
-	//sh ("scp -i demokey.pem sample.jar ubuntu@${env.public_ip}:/home/ubuntu/")
-	//sh ("ssh -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey.pem ubuntu@${env.public_ip} 'java -jar sample.jar'")
-	    sh ("ssh -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey.pem ubuntu@${env.public_ip} 'ls -a'")
+	sh ("scp -i demokey.pem sample.jar ubuntu@${env.public_ip}:/")
+	sh ("ssh -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey.pem ubuntu@${env.public_ip} 'java -jar sample.jar'")
+	//    sh ("ssh -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey.pem ubuntu@${env.public_ip} 'ls -a'")
 	   // sh ("echo ${env.public_ip}")
 	}
 	//stage("Clean up with TerraForm") {
