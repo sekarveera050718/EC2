@@ -21,6 +21,7 @@ node {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                     sh "exit 1"
                 }
+	    }    
 	}
 	stage("Clean up with TerraForm") {
 		// Destroys the earlier created EC2 T2.micro instance
