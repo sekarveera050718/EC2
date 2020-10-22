@@ -24,13 +24,20 @@ node {
 	//sh 'scp -r sample.jar -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey ubuntu@${env.public_ip}:/home/ubuntu/'
 	sh 'ssh -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey ubuntu@${env.public_ip} "java -jar sample.jar"'
 	              sh 'exit 1'
-                
-	    }  
-	   
+           }  catch(e) {
+        build_ok = false
+        echo e.toString()  
+   	 }
+   
 	}
 	stage("Clean up with TerraForm") {
 		// Destroys the earlier created EC2 T2.micro instance
 		sh("~/terraform destroy -input=false -auto-approve")
 		sh 'exit 0'
 	}
+	if(build_ok) {
+        currentBuild.result = "SUCCESS"
+    } else {
+        currentBuild.result = "FAILURE"
+    }
 }
