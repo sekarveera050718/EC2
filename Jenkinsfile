@@ -30,6 +30,7 @@ node {
    	 }
    
 	}
+	}
 	stage("Clean up with TerraForm") {
 		// Destroys the earlier created EC2 T2.micro instance
 		sh("~/terraform destroy -input=false -auto-approve")
