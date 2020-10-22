@@ -20,6 +20,8 @@ pipeline {
 		steps {
 		        // Creates EC2 T2.micro instance with Tomcat installed on it
 		        sh("~/terraform init; ~/terraform apply -input=false -auto-approve")
+		}
+		   steps {
 		        env.public_ip = sh(returnStdout: true, script: "~/terraform output public_ip").trim()
 		}
 	   }
