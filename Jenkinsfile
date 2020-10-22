@@ -15,7 +15,7 @@ node {
 	}
     stage("Deploy Jar to AWS") {
 		// Deploy sample.jar to AWS
-	sh ("scp -r /var/lib/jenkins/workspace/balaji/java3/sample.jar -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey ubuntu@${env.public_ip}:/home/ubuntu/")
+	sh ("scp -r /var/lib/jenkins/workspace/balaji/java3/sample.jar -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey.pem ubuntu@${env.public_ip}:/home/ubuntu/")
 	sh ("ssh -o StrictHostKeyChecking=no -i /home/ubuntu/.aws/demokey ubuntu@${env.public_ip} 'java -jar sample.jar'")
 	   // sh ("echo ${env.public_ip}")
 	}
