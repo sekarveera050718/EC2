@@ -1,13 +1,12 @@
 node {
-    stage('Clone repository') {
-        git credentialsId: 'github-credentials', url: 'https://github.com/sekarveera050718/EC2.git'
+    stage('Create Folder') {
+         sh "mkdir -p output"
     }
-    stage('Compile') {
-        sh 'javac *.java'
+    stage('Create File') {
+       writeFile file: "output/usefulfile.txt", text: "This file is useful, need to archive it."
+
     }
-    stage('Build Jar') {
-        sh 'jar cvfm sample.jar  manifest.txt *.class'
-    }
+   
 	
     
 }
