@@ -1,6 +1,6 @@
 node {
     stage('Clone repository') {
-        git credentialsId: 'github-credentials', url: 'https://github.com/maheshmadmax/java4-EC2.git'
+        git credentialsId: 'github-credentials', url: 'https://github.com/sekarveera050718/EC2.git'
     }
     stage('Compile') {
         sh 'javac *.java'
